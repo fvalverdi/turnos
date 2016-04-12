@@ -1,8 +1,10 @@
 #from django.http import HttpResponse
 from django.shortcuts import render
-#from .models import Turnos
+from .models import Turnos
 
 def pacientes_list(request):
-        return render(request, 'turnos/pacientes_list.html', {})
+
+		posts = Turnos.objects.all()
+        return render(request, 'turnos/pacientes_list.html', {'posts': posts})
 
 # Create your views here.
